@@ -7,7 +7,7 @@
   <style>
     @font-face {
       font-family: 'Caviar Dreams';
-      src: url('https://dl.dropboxusercontent.com/scl/fi/zj2t1tldeqr9c2gj3urn7/OthersBG.gif?rlkey=0abjujugxaazj0mosi384ir24&st=feh0szyg&dl=0');
+      src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0');
     }
     
     * {
@@ -22,33 +22,29 @@
     
     body {
       font-family: 'Caviar Dreams', sans-serif;
-      background: url('https://dl.dropboxusercontent.com/scl/fi/zj2t1tldeqr9c2gj3urn7/OthersBG.gif?rlkey=0abjujugxaazj0mosi384ir24&st=feh0szyg&dl=0') no-repeat center center fixed; 
+      background: url('https://dl.dropboxusercontent.com/scl/fi/zj2t1tldeqr9c2gj3urn7/OthersBG.gif?rlkey=0abjujugxaazj0mosi384ir24&st=feh0szyg&dl=0') no-repeat center center fixed;
       background-color: #FFFFFF;
-      background-repeat: no-repeat;
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
       min-height: 100vh;
-      user-select: none; /* Disable text selection */
+      user-select: none;
       display: flex;
-      justify-content: flex-start; /* Align content to the top */
-      align-items: center;
       flex-direction: column;
-      padding: 20px;
-      /* Add extra bottom padding so content isn't hidden behind the footer */
-      padding-bottom: 80px;
     }
     
+    /* Content container takes available space */
     .container {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
       max-width: 500px;
-      gap: 20px; /* Space between elements */
+      gap: 20px;
+      padding: 20px;
     }
     
-    /* Fade-in-up animation keyframes */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -60,20 +56,17 @@
       }
     }
     
-    /* Styles for the card */
     .card {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      margin: 10px 0;
       padding: 20px;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       width: 100%;
-      border: 5px solid #7279DA; /* Thick border */
+      border: 5px solid #7279DA;
       transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-      /* Animation initial state */
       opacity: 0;
       transform: translateY(50px);
       animation: fadeInUp 1s forwards ease-out;
@@ -83,7 +76,7 @@
       transform: scale(1.05);
       filter: brightness(1.2);
       background-color: rgba(0, 0, 0, 0.8);
-      box-shadow: 0 0 15px #7279DA; /* Glowing effect on hover */
+      box-shadow: 0 0 15px #7279DA;
     }
     
     .card-header {
@@ -103,7 +96,7 @@
       margin: 0;
       font-size: 18px;
       color: white;
-      text-shadow: 0 0 10px #7279DA; /* Glowing effect */
+      text-shadow: 0 0 10px #7279DA;
     }
     
     .main-text {
@@ -113,15 +106,13 @@
       line-height: 1.5;
     }
     
-    /* YouTube Embed */
     .video-container {
       width: 100%;
       max-width: 500px;
-      aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+      aspect-ratio: 16 / 9;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      /* Animation initial state */
       opacity: 0;
       transform: translateY(50px);
       animation: fadeInUp 1s forwards ease-out;
@@ -133,11 +124,8 @@
       border: none;
     }
     
-    /* Fixed Footer styling */
+    /* Footer retains its layout styling */
     .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
       width: 100%;
       padding: 15px 20px;
       font-size: 14px;
@@ -150,7 +138,6 @@
 </head>
 <body>
   <div class="container">
-    <!-- Updated Card -->
     <div class="card">
       <div class="card-header">
         <img src="https://dl.dropboxusercontent.com/scl/fi/gacl9eivu6g9umy7f2shc/Art.png?rlkey=2ycu8nn6wb2b3lkepbyb86dyn&st=a1e9aaxm&dl=0" alt="Art Icon" class="icon" loading="lazy">
@@ -162,14 +149,13 @@
         Immerse yourself in a world where creativity knows no bounds. Here, witness the evolution of rhythmic beats, soulful melodies, and the art of cinematic storytelling by Dev Raj Malik. Stay updated on the latest news, releases, and behind-the-scenes glimpses into the multifaceted world of artistic expression, encompassing music, and the magic of short films. Join the journey where every form of art converges to ignite imagination and evoke emotions.
       </p>
     </div>
-    
-    <!-- Embedded YouTube Video -->
+
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/OmsDPDYTk00?si=0PNo552MrXLk1tz6" allowfullscreen></iframe>
     </div>
   </div>
   
-  <!-- Fixed Footer -->
+  <!-- Footer placed outside the container -->
   <div class="footer">
     Copyright © 2025 Dev Raj Malik
   </div>
