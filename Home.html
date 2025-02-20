@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Background Cards</title>
+    <style>
+        @font-face {
+            font-family: 'Caviar Dreams';
+            src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Caviar Dreams', sans-serif;
+            background: url('https://dl.dropboxusercontent.com/scl/fi/u78rb25bejh36ham1dwy9/HomeBG.gif?rlkey=w2cazwlh63i974e6dsj1th4o2&st=s05b44pf&dl=0') no-repeat center center fixed; 
+            background-color: #FFFFFF;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            user-select: none; /* Disable text selection */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow-y: auto; /* Enables scrolling if necessary */
+            padding: 20px;
+        }
+
+        .header-img {
+            width: 350px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            border: 10px solid #7279DA; /* Thick border */
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px #7279DA; /* Glowing effect on hover */
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .card img.icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .card-info h2 {
+            margin: 0;
+            font-size: 18px;
+            color: white;
+            text-shadow: 0 0 10px #7279DA; /* Glowing effect */
+        }
+
+        .main-text {
+            font-size: 14px;
+            color: lightgray;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Image -->
+    <img src="https://dl.dropboxusercontent.com/scl/fi/auat668snkxpivdh2e8hn/Logo.png?rlkey=1ucc441wraue86vq5fuasy4b6&st=26c9k2ia&dl=0" alt="Header Image" class="header-img">
+
+    <div class="container">
+        <!-- First Card -->
+        <div class="card">
+            <div class="card-header">
+                <img src="https://dl.dropboxusercontent.com/scl/fi/tewnftoeqyc96yekwohpy/Rocket.png?rlkey=6prlu947lkbioqrck796fpd12&st=8uawzg8z&dl=0" alt="Rocket Icon" class="icon">
+                <div class="card-info">
+                    <h2>Discover Roar's World</h2>
+                </div>
+            </div>
+            <p class="main-text">At Roar's Den, delve into the vibrant universe of Dev Raj Malik, also known as Roar The Gamedev. Step into a realm where creativity knows no bounds, where gaming, app development, writing, and music converge to form captivating experiences.</p>
+        </div>
+
+        <!-- Second Card -->
+        <div class="card">
+            <div class="card-header">
+                <img src="https://dl.dropboxusercontent.com/scl/fi/xm6l74rkqaqoivevlaq23/Game.png?rlkey=pxif1e1wpc72qwq2pjxlho1c0&st=vxanovdj&dl=0" alt="Game Icon" class="icon">
+                <div class="card-info">
+                    <h2>Immersive Games</h2>
+                </div>
+            </div>
+            <p class="main-text">Explore a collection of games that transcend mere entertainment. Roar The Gamedev's creations are immersive journeys designed to captivate and engage players, inviting them into extraordinary realms of adventure and excitement.</p>
+        </div>
+
+        <!-- Third Card -->
+        <div class="card">
+            <div class="card-header">
+                <img src="https://dl.dropboxusercontent.com/scl/fi/w369tcs7nzheymge64sr8/App.png?rlkey=660jy0c1xksflhftfwbf7zvbf&st=rldtd5im&dl=0" alt="App Icon" class="icon">
+                <div class="card-info">
+                    <h2>Innovative Apps</h2>
+                </div>
+            </div>
+            <p class="main-text">Discover innovative apps from Roar Studios that redefine connectivity and productivity. Our apps are more than just tools; they're companions enhancing your digital experiences.</p>
+        </div>
+    </div>
+
+</body>
+</html>
