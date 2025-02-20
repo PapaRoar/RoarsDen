@@ -16,31 +16,35 @@
       box-sizing: border-box;
     }
     
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Caviar Dreams', sans-serif;
+      user-select: none; /* Disable text selection */
+    }
+    
+    body {
       background: url('https://dl.dropboxusercontent.com/scl/fi/w2xnpiu3oev3i1p0ja0in/AboutBG.gif?rlkey=8lx7x2vemj7r5c2hvfirj8tyi&st=66liopi0&dl=0') no-repeat center center fixed; 
       background-color: #FFFFFF;
       background-repeat: no-repeat;
       background-size: cover;
       background-attachment: fixed;
       background-position: center;
-      min-height: 100vh;
-      user-select: none; /* Disable text selection */
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
       padding: 20px;
       /* Add extra bottom padding so content isn't hidden behind the footer */
       padding-bottom: 80px;
     }
     
     .container {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
       max-width: 500px; /* Limit the maximum width of the container */
+      margin-bottom: 20px;
     }
     
     /* Fade-in-up animation keyframes */
@@ -159,10 +163,9 @@
           <img src="https://dl.dropboxusercontent.com/scl/fi/vi5a0cpijkrgzwsbtuwld/Instagram.png?rlkey=73fa8aebafgem24w2216v05nv&st=hjijugzg&dl=0" alt="Instagram Icon" class="icon">
         </a>
       </div>
-      <p class="main-text"><strong>🌟 Special Thanks To Dev Raj Malik 🌟</strong><br>
-        Dev Raj Malik, also known as Roar The Gamedev 🚀, is a multi-talented creative force. He's a game and app developer, the founder of Roar Studios, and the mind behind ConnectaX App. But that's not all – he's also a writer ✍️ and a beatmaker 🎵.<br><br>
-        In the gaming world, Roar The Gamedev's creations are more than games; they are immersive experiences that captivate players 🎮. With Roar Studios, he pioneers innovative apps that enhance connectivity and productivity 📱.<br><br>
-        Dev Raj Malik, aka Roar The Gamedev, is a true creative dynamo, leaving his mark in the realms of gaming, app development, writing, and music 🌟. His work isn't just creative; it's a journey into new worlds and emotions 🌍.
+      <p class="main-text"><br>
+        Dev Raj Malik, an independent app developer from India, is known for his creativity and dedication to crafting unique, user-friendly applications. With a passion for technology and innovation, he has developed a range of apps that stand out for their engaging features and seamless functionality, showcasing his expertise and commitment to excellence.<br><br>
+        Dev Raj Malik, aka Roar The Gamedev, is a true creative dynamo, leaving his mark in the realms of gaming, app development, writing, and music. His work isn't just creative; it's a journey into new worlds and emotions.
       </p>
     </div>
   </div>
