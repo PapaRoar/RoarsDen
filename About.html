@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Background Cards</title>
+  <style>
+    @font-face {
+      font-family: 'Caviar Dreams';
+      src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0');
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Caviar Dreams', sans-serif;
+      background: url('https://dl.dropboxusercontent.com/scl/fi/w2xnpiu3oev3i1p0ja0in/AboutBG.gif?rlkey=8lx7x2vemj7r5c2hvfirj8tyi&st=66liopi0&dl=0') no-repeat center center fixed; 
+      background-color: #FFFFFF;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      min-height: 100vh;
+      user-select: none; /* Disable text selection */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      /* Add extra bottom padding so content isn't hidden behind the footer */
+      padding-bottom: 80px;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 500px; /* Limit the maximum width of the container */
+    }
+    
+    /* Fade-in-up animation keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 100%; /* Ensure the card doesn't exceed the container width */
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+      border: 5px solid #7279DA; /* Thick border */
+      overflow-y: auto; /* Add scroll if content overflows vertically */
+      max-height: 90vh; /* Limit the height to 90% of the viewport height */
+      /* Animation initial state */
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards ease-out;
+    }
+    
+    .card:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 15px #7279DA; /* Glowing effect on hover */
+    }
+    
+    .card-header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    
+    .card img.person-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+    
+    .card-info {
+      flex: 1;
+      padding-left: 20px;
+    }
+    
+    .card-info h2 {
+      margin: 0;
+      font-size: 18px;
+      color: white;
+      text-shadow: 0 0 10px #7279DA; /* Glowing effect */
+    }
+    
+    .card-info p {
+      margin: 0;
+      font-size: 14px;
+      color: lightgray;
+    }
+    
+    .card img.icon {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    
+    .icon:hover {
+      transform: scale(1.1);
+    }
+    
+    .main-text {
+      font-size: 14px;
+      color: lightgray;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    
+    /* Fixed Footer styling */
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 14px;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/kg81a2y1h4he0vdbf894o/Adobe_Express_20241117_2142350_1.png?rlkey=5j6791hztyk03ad3rm1xi2p5m&st=i5xasnk9&dl=0" alt="Dev Raj Malik" class="person-img">
+        <div class="card-info">
+          <h2>Dev Raj Malik</h2>
+          <p>(Developer)</p>
+        </div>
+        <a href="intent://www.instagram.com/papa_roar?igsh=MWY2MHAyZWoyaXBlaQ==#Intent;package=com.instagram.android;scheme=https;end;">
+          <img src="https://dl.dropboxusercontent.com/scl/fi/vi5a0cpijkrgzwsbtuwld/Instagram.png?rlkey=73fa8aebafgem24w2216v05nv&st=hjijugzg&dl=0" alt="Instagram Icon" class="icon">
+        </a>
+      </div>
+      <p class="main-text"><strong>🌟 Special Thanks To Dev Raj Malik 🌟</strong><br>
+        Dev Raj Malik, also known as Roar The Gamedev 🚀, is a multi-talented creative force. He's a game and app developer, the founder of Roar Studios, and the mind behind ConnectaX App. But that's not all – he's also a writer ✍️ and a beatmaker 🎵.<br><br>
+        In the gaming world, Roar The Gamedev's creations are more than games; they are immersive experiences that captivate players 🎮. With Roar Studios, he pioneers innovative apps that enhance connectivity and productivity 📱.<br><br>
+        Dev Raj Malik, aka Roar The Gamedev, is a true creative dynamo, leaving his mark in the realms of gaming, app development, writing, and music 🌟. His work isn't just creative; it's a journey into new worlds and emotions 🌍.
+      </p>
+    </div>
+  </div>
+  
+  <!-- Fixed Footer -->
+  <div class="footer">
+    Copyright © 2025 Dev Raj Malik
+  </div>
+</body>
+</html>
