@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ComStar Productions</title>
+  <style>
+    /* Import the Caviar Dreams font */
+    @font-face {
+      font-family: 'Caviar Dreams';
+      src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Reset / Base */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden; /* Prevent horizontal scroll */
+      font-family: 'Caviar Dreams', sans-serif;
+      user-select: none; /* Disable text selection */
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background: url('https://dl.dropboxusercontent.com/scl/fi/2s69poaelzw5xcgi1gucp/PromotionsBG.gif?rlkey=vza2j4bh2ukxlghfvlrxxxjs6&st=q7a8tvcs&dl=0') 
+                  no-repeat center center fixed;
+      background-size: cover;
+      background-color: #FFFFFF;
+    }
+
+    /* Container for main content */
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      /* Add bottom padding so content doesn't get hidden behind the fixed footer */
+      padding-bottom: 80px;
+    }
+
+    /* Card styles */
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      border: 5px solid #7279DA;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+
+      /* Fade-in-up animation initial state */
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards ease-out;
+      animation-delay: 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 15px #7279DA;
+    }
+
+    .card img.banner {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      pointer-events: none; /* Disable image copying */
+    }
+
+    .main-text {
+      font-size: 12px;
+      color: lightgray;
+      text-align: justify;
+      pointer-events: none; /* Prevent text selection within card */
+    }
+
+    .main-text strong {
+      font-weight: bold;
+    }
+
+    .main-text em {
+      font-style: italic;
+    }
+
+    .main-text a {
+      color: lightblue;
+      pointer-events: auto; /* Allow clicking links */
+      text-decoration: none;
+    }
+
+    .main-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Disable right-click and copying */
+    body, .card {
+      -webkit-touch-callout: none; 
+      -webkit-user-select: none; 
+      -moz-user-select: none; 
+      -ms-user-select: none; 
+      user-select: none; 
+    }
+
+    /* Fade-in-up animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Footer pinned to bottom */
+    .footer {
+      position: fixed;  /* Fix at bottom of viewport */
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 14px;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+      /* Center the footer text */
+      text-align: center;
+    }
+  </style>
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <img 
+        src="https://dl.dropboxusercontent.com/scl/fi/yu050a33pmatrwq9g2k61/ComStar.jpg?rlkey=k8e14nbhkmz8p0ggb9iqisva2&st=pdbiqxe9&dl=0" 
+        alt="ComStar Productions Banner" 
+        class="banner"
+      />
+      <div class="main-text">
+        <p><strong>🚀 Empowering Digital Innovation and IT Solutions! 🌟</strong></p>
+        <p>
+          ComStar Productions is a leading IT consulting firm, specializing in providing top-tier computer services and digital solutions for businesses of all sizes. 
+          With decades of experience, ComStar Productions offers expert consulting services in IT infrastructure, network security, and customized software development.
+        </p>
+        <p>
+          Whether you need help with troubleshooting, setting up new systems, or optimizing your business's tech environment, ComStar Productions is your go-to partner. 
+          We prioritize personalized service, cutting-edge technology, and a commitment to enhancing the efficiency and security of your business operations.
+        </p>
+        <p>Trust ComStar Productions to bring your IT needs to the next level!</p>
+        <p>🌐 <strong>Visit us today at:</strong> <a href="https://www.ComStarComputers.com">www.ComStarComputers.com</a></p>
+        <p>📞 <strong>Call us:</strong> 540.388.3085</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed Footer -->
+  <div class="footer">
+    Copyright © 2025 Dev Raj Malik
+  </div>
+</body>
+</html>
