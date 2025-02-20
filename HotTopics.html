@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Cards</title>
+    <style>
+        /* Import the Caviar Dreams font */
+        @font-face {
+            font-family: 'Caviar Dreams';
+            src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Caviar Dreams', sans-serif;
+            background: url('https://dl.dropboxusercontent.com/scl/fi/0ot5j98fmm3ff69ifrers/HotTopicsBG.gif?rlkey=d4iu506wcskcd6be70bsqf5a0&st=rz9ueeci&dl=0') no-repeat center center fixed; 
+            background-color: #FFFFFF;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            user-select: none; /* Disable text selection */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Transparent card background color */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            border: 5px solid #7279DA; /* Thick border */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px #7279DA; /* Glowing effect on hover */
+        }
+
+        .card img.banner {
+            width: 100%;
+            height: auto;
+            max-width: 730px;
+            max-height: 340px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .main-text {
+            font-size: 12px;
+            color: lightgray;
+            text-align: justify;
+            user-select: none; /* Disable text selection */
+        }
+
+        .main-text strong {
+            font-weight: bold;
+        }
+
+        .main-text em {
+            font-style: italic;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #28a745; /* Green button */
+            color: white;
+            font-size: 16px;
+            font-weight: bold; /* Bold text for button */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            user-select: none; /* Prevent copying button text */
+        }
+
+        .download-button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        /* Disable right-click and copying */
+        body, .main-text, .download-button {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            -webkit-touch-callout: none; /* Disable long-press copying on mobile */
+        }
+    </style>
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Disable Ctrl+U, Ctrl+C, Ctrl+Shift+I, F12
+        document.addEventListener('keydown', function (event) {
+            if (event.ctrlKey && (event.key === 'u' || event.key === 'U' || event.key === 'c' || event.key === 'C' || event.key === 'i' || event.key === 'I')) {
+                event.preventDefault();
+            }
+            if (event.key === 'F12') {
+                event.preventDefault();
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/yliptoo1mmz9bk3kc9pa5/StarfleetBanner.jpg?rlkey=tvq56q04otdpzn0dctrabcb5q&st=murbbi8w&dl=0" alt="Starfleet Holodecks Banner" class="banner">
+
+            <div class="main-text">
+                <p><strong>Starfleet Holodecks</strong> is the ultimate app for Star Trek fans. Explore a vast universe of Trek content by streaming your favorite movies and episodes. Join the vibrant Trek Talk community to interact, discuss, and share your passion with fellow Trekkies. Whether you're a lifelong fan or new to the Starfleet universe, this app provides everything you need to immerse yourself in the world of Star Trek.</p>
+                
+                <p><strong>Starfleet Holodecks is your one-stop hub for Trek adventures and fandom!</strong></p>
+
+                <p><strong>Developer:</strong> Jason C. Kubin<br>
+                <strong>Publisher:</strong> ComStar Productions</p>
+            </div>
+
+            <a href="https://play.google.com/store/apps/details?id=starfleet.holodeckspro" class="download-button" target="_blank"><strong>Download Now</strong></a>
+        </div>
+    </div>
+
+</body>
+</html>
