@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Scroll Cards</title>
   <style>
     @font-face {
@@ -11,37 +11,41 @@
       font-weight: normal;
       font-style: normal;
     }
-    
-    * {
+
+    /* Make html and body fill the entire viewport height */
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-    
+
+    /* Use flex layout on the body so footer can stay at bottom if content is short */
     body {
+      display: flex;
+      flex-direction: column;
       font-family: 'Caviar Dreams', sans-serif;
       background: url('https://dl.dropboxusercontent.com/scl/fi/0yljhq518aye9plqsmjfo/TeamBG.gif?rlkey=g7s0gd41f1n1khe2wd43gm6ey&st=43sbwidc&dl=0') no-repeat center center fixed; 
       background-color: #FFFFFF;
       background-size: cover;
-      margin: 0;
-      padding: 0;
       overflow-x: hidden; /* Prevent horizontal scrolling */
-      user-select: none; /* Disable text selection */
+      user-select: none;  /* Disable text selection */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      oncontextmenu: return false; /* Disable right-click */
     }
-    
+
     .container {
+      /* Flex: 1 so it takes all remaining space above the footer */
+      flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      height: 100vh;
       padding: 20px;
       box-sizing: border-box;
-      overflow-y: auto;
-      /* Add extra bottom padding so content isn't hidden behind the footer */
-      padding-bottom: 80px;
     }
-    
+
     /* Fade-in-up animation keyframes */
     @keyframes fadeInUp {
       from {
@@ -53,11 +57,10 @@
         transform: translateY(0);
       }
     }
-    
+
     .card {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       margin-bottom: 20px;
       padding: 20px;
       background-color: rgba(0, 0, 0, 0.6);
@@ -73,26 +76,26 @@
       transform: translateY(50px);
       animation: fadeInUp 1s forwards ease-out;
     }
-    
+
     .card:hover {
       transform: scale(1.05);
       filter: brightness(1.2);
       background-color: rgba(0, 0, 0, 0.8);
       box-shadow: 0 0 15px #7279DA; /* Glowing effect on hover */
     }
-    
+
     .card img.person-img {
       width: 80px;
       height: 80px;
       border-radius: 50%;
       flex-shrink: 0;
     }
-    
+
     .card-info {
-      flex: 1;
+      flex: 1; /* Let this take up remaining space */
       padding-left: 20px;
     }
-    
+
     .card-info h2,
     .card-info p {
       margin: 0;
@@ -100,58 +103,47 @@
       transition: color 0.3s;
       pointer-events: none; /* Prevent interaction */
     }
-    
+
     .card-info h2 {
       text-shadow: 0 0 10px #7279DA; /* Glowing effect */
     }
-    
+
     .card-info p {
       font-size: 14px;
       color: lightgray;
       white-space: nowrap;
     }
-    
+
+    /* Icon on the far right */
+    .card a {
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+
     .card img.icon {
       width: 40px;
       height: 40px;
-      flex-shrink: 0;
       border-radius: 0;
       cursor: pointer;
     }
-    
-    /* Disable right-click, text selection, and copy */
-    body, .card, .card-info h2, .card-info p {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    
-    body, img, a {
-      -webkit-touch-callout: none;
-      -webkit-user-drag: none;
-      -moz-user-drag: none;
-      -ms-user-drag: none;
-      user-drag: none;
-    }
-    
-    /* Disable right-click */
-    body {
-      oncontextmenu: return false;
-    }
-    
-    /* Fixed Footer styling */
+
+    /* Footer at the bottom of the page */
     .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
       padding: 15px 20px;
       font-size: 14px;
       color: white;
       background: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       text-align: center;
+    }
+
+    /* Disable Ctrl+U, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+S, Ctrl+P */
+    document {
+      onkeydown: function(e) {
+        if (e.ctrlKey && ["u", "c", "v", "x", "s", "p"].includes(e.key.toLowerCase())) {
+          e.preventDefault();
+        }
+      }
     }
   </style>
   <script>
@@ -199,7 +191,7 @@
       <img src="https://dl.dropboxusercontent.com/scl/fi/26e41e3r5vwio3iaw5ss6/Henry.jpg?rlkey=rsdfffymehsdccgpqkm2td5s7&st=yzh3yoi7&dl=0" alt="Henry" class="person-img">
       <div class="card-info">
         <h2>Henry</h2>
-        <p>(Exclusive Beta Tester)</p>
+        <p>(Indie Developer)</p>
       </div>
       <a href="intent://www.facebook.com/share/18DTv3oJKy/#Intent;package=com.facebook.katana;scheme=https;end;">
         <img src="https://dl.dropboxusercontent.com/scl/fi/0ir87fe3xj1gpbh55st6s/Facebook.png?rlkey=wps1lhm7bp15fz5r4965bez2v&st=889cwkvy&dl=0" alt="Facebook Icon" class="icon">
@@ -211,7 +203,7 @@
       <img src="https://dl.dropboxusercontent.com/scl/fi/itgofpoqvkfuy8tdlt5ru/Arisha.jpg?rlkey=u2cse9vrk4x9su2u75tjskt6p&st=k7pvt77w&dl=0" alt="Arisha Khan" class="person-img">
       <div class="card-info">
         <h2>Arisha Khan</h2>
-        <p>(Exclusive Beta Tester)</p>
+        <p>(Dash Media)</p>
       </div>
       <a href="intent://www.instagram.com/ash_00xx?igshid=MTdudGd2eW8yZjRqeQ==#Intent;package=com.instagram.android;scheme=https;end;">
         <img src="https://dl.dropboxusercontent.com/scl/fi/vi5a0cpijkrgzwsbtuwld/Instagram.png?rlkey=73fa8aebafgem24w2216v05nv&st=hjijugzg&dl=0" alt="Instagram Icon" class="icon">
@@ -219,7 +211,7 @@
     </div>
   </div>
   
-  <!-- Fixed Footer -->
+  <!-- Footer (will sit at the bottom of the page if content is short, or below content if it's taller) -->
   <div class="footer">
     Copyright © 2025 Dev Raj Malik
   </div>
