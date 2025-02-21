@@ -60,14 +60,15 @@
 
     .card {
       display: flex;
+      justify-content: space-between; /* Keeps left content and icon separated */
       align-items: center;
       margin-bottom: 20px;
       padding: 20px;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      width: 100%;
-      max-width: 400px;
+      width: 90%;                
+      max-width: 450px;          /* Slightly narrower for a cleaner look */
       box-sizing: border-box;
       transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
       border: 5px solid #7279DA; /* Thick border */
@@ -84,16 +85,24 @@
       box-shadow: 0 0 15px #7279DA; /* Glowing effect on hover */
     }
 
-    .card img.person-img {
-      width: 80px;
-      height: 80px;
+    /* Left side of the card (photo + text) */
+    .card-left {
+      display: flex;
+      align-items: center;
+      flex: 1; /* Let it expand */
+      margin-right: 10px; /* Some space before the icon */
+    }
+
+    .card-left img.person-img {
+      width: 60px;   /* Smaller photo */
+      height: 60px;
       border-radius: 50%;
       flex-shrink: 0;
     }
 
     .card-info {
-      flex: 1; /* Let this take up remaining space */
-      padding-left: 20px;
+      margin-left: 15px;
+      flex: 1; /* Let this take up remaining space for text */
     }
 
     .card-info h2,
@@ -102,27 +111,34 @@
       color: white;
       transition: color 0.3s;
       pointer-events: none; /* Prevent interaction */
+      white-space: nowrap;  /* Keep text in one line */
+      overflow: hidden;     /* Hide overflow if text is too long */
+      text-overflow: ellipsis; /* Show '...' if it overflows */
     }
 
+    /* Adjust the font sizes to keep them on one line and smaller */
     .card-info h2 {
-      text-shadow: 0 0 10px #7279DA; /* Glowing effect */
+      font-size: 16px; /* Reduced title size */
+      text-shadow: 0 0 6px #7279DA; /* Slightly less glow */
+      margin-bottom: 4px;
     }
 
     .card-info p {
-      font-size: 14px;
+      font-size: 12px; /* Reduced subtitle size */
       color: lightgray;
-      white-space: nowrap;
     }
 
-    /* Icon on the far right */
-    .card a {
-      margin-left: 10px;
-      flex-shrink: 0;
+    /* Right side (icon) */
+    .card-right {
+      flex-shrink: 0; /* Icon won't shrink */
+      display: flex;
+      align-items: center;
     }
 
-    .card img.icon {
-      width: 40px;
-      height: 40px;
+    /* Smaller icon size */
+    .card-right img.icon {
+      width: 28px;
+      height: 28px;
       border-radius: 0;
       cursor: pointer;
     }
@@ -135,15 +151,6 @@
       background: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       text-align: center;
-    }
-
-    /* Disable Ctrl+U, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+S, Ctrl+P */
-    document {
-      onkeydown: function(e) {
-        if (e.ctrlKey && ["u", "c", "v", "x", "s", "p"].includes(e.key.toLowerCase())) {
-          e.preventDefault();
-        }
-      }
     }
   </style>
   <script>
@@ -164,50 +171,66 @@
   <div class="container">
     <!-- Jason Kubin -->
     <div class="card">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/jmrz47gv8u896h81553l6/Jason-Kubin.png?rlkey=0ok8q525spofhz5v4t3v704t5&st=ajrepclr&dl=0" alt="Jason Kubin" class="person-img">
-      <div class="card-info">
-        <h2>Jason Kubin</h2>
-        <p>(ComStar Productions)</p>
+      <div class="card-left">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/jmrz47gv8u896h81553l6/Jason-Kubin.png?rlkey=0ok8q525spofhz5v4t3v704t5&st=ajrepclr&dl=0" alt="Jason Kubin" class="person-img">
+        <div class="card-info">
+          <h2>Jason Kubin</h2>
+          <p>(ComStar Productions)</p>
+        </div>
       </div>
-      <a href="intent://www.facebook.com/share/hCKjrZkmTzpQXix7/#Intent;package=com.facebook.katana;scheme=https;end;">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/0ir87fe3xj1gpbh55st6s/Facebook.png?rlkey=wps1lhm7bp15fz5r4965bez2v&st=889cwkvy&dl=0" alt="Facebook Icon" class="icon">
-      </a>
+      <div class="card-right">
+        <a href="intent://www.facebook.com/share/hCKjrZkmTzpQXix7/#Intent;package=com.facebook.katana;scheme=https;end;">
+          <img src="https://dl.dropboxusercontent.com/scl/fi/0ir87fe3xj1gpbh55st6s/Facebook.png?rlkey=wps1lhm7bp15fz5r4965bez2v&st=889cwkvy&dl=0" alt="Facebook Icon" class="icon">
+        </a>
+      </div>
     </div>
     
     <!-- Anu Mittal -->
     <div class="card">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/1q6zxsbf41w3iklg0gdg2/Anu-Mittal.jpg?rlkey=6mofybct3gykdjh7q45y3x7pq&st=5pa7vtqh&dl=0" alt="Anu Mittal" class="person-img">
-      <div class="card-info">
-        <h2>Anu Mittal</h2>
-        <p>(Vintech Computers)</p>
+      <div class="card-left">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/1q6zxsbf41w3iklg0gdg2/Anu-Mittal.jpg?rlkey=6mofybct3gykdjh7q45y3x7pq&st=5pa7vtqh&dl=0" alt="Anu Mittal" class="person-img">
+        <div class="card-info">
+          <h2>Anu Mittal</h2>
+          <p>(Vintech Computers)</p>
+        </div>
       </div>
-      <a href="intent://www.instagram.com/vintechselfstudylibrary?igsh=ZWd2ajdrZHl6dDh3==#Intent;package=com.instagram.android;scheme=https;end;">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/vi5a0cpijkrgzwsbtuwld/Instagram.png?rlkey=73fa8aebafgem24w2216v05nv&st=hjijugzg&dl=0" alt="Instagram Icon" class="icon">
-      </a>
+      <div class="card-right">
+        <a href="intent://www.instagram.com/vintechselfstudylibrary?igsh=ZWd2ajdrZHl6dDh3==#Intent;package=com.instagram.android;scheme=https;end;">
+          <img src="https://dl.dropboxusercontent.com/scl/fi/vi5a0cpijkrgzwsbtuwld/Instagram.png?rlkey=73fa8aebafgem24w2216v05nv&st=hjijugzg&dl=0" alt="Instagram Icon" class="icon">
+        </a>
+      </div>
     </div>
     
     <!-- Henry -->
     <div class="card">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/26e41e3r5vwio3iaw5ss6/Henry.jpg?rlkey=rsdfffymehsdccgpqkm2td5s7&st=yzh3yoi7&dl=0" alt="Henry" class="person-img">
-      <div class="card-info">
-        <h2>Henry</h2>
-        <p>(Indie Developer)</p>
+      <div class="card-left">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/26e41e3r5vwio3iaw5ss6/Henry.jpg?rlkey=rsdfffymehsdccgpqkm2td5s7&st=yzh3yoi7&dl=0" alt="Henry" class="person-img">
+        <div class="card-info">
+          <h2>Henry</h2>
+          <p>(Indie Developer)</p>
+        </div>
       </div>
-      <a href="intent://www.facebook.com/share/18DTv3oJKy/#Intent;package=com.facebook.katana;scheme=https;end;">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/0ir87fe3xj1gpbh55st6s/Facebook.png?rlkey=wps1lhm7bp15fz5r4965bez2v&st=889cwkvy&dl=0" alt="Facebook Icon" class="icon">
-      </a>
+      <div class="card-right">
+        <a href="intent://www.facebook.com/share/18DTv3oJKy/#Intent;package=com.facebook.katana;scheme=https;end;">
+          <img src="https://dl.dropboxusercontent.com/scl/fi/0ir87fe3xj1gpbh55st6s/Facebook.png?rlkey=wps1lhm7bp15fz5r4965bez2v&st=889cwkvy&dl=0" alt="Facebook Icon" class="icon">
+        </a>
+      </div>
     </div>
     
     <!-- Arisha Khan -->
     <div class="card">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/itgofpoqvkfuy8tdlt5ru/Arisha.jpg?rlkey=u2cse9vrk4x9su2u75tjskt6p&st=k7pvt77w&dl=0" alt="Arisha Khan" class="person-img">
-      <div class="card-info">
-        <h2>Arisha Khan</h2>
-        <p>(Dash Media)</p>
+      <div class="card-left">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/itgofpoqvkfuy8tdlt5ru/Arisha.jpg?rlkey=u2cse9vrk4x9su2u75tjskt6p&st=k7pvt77w&dl=0" alt="Arisha Khan" class="person-img">
+        <div class="card-info">
+          <h2>Arisha Khan</h2>
+          <p>(Dash Media)</p>
+        </div>
       </div>
-      <a href="intent://www.instagram.com/ash_00xx?igshid=MTdudGd2eW8yZjRqeQ==#Intent;package=com.instagram.android;scheme=https;end;">
-        <img src="https://dl.dropboxusercontent.com/scl/fi/vi5a0cpijkrgzwsbtuwld/Instagram.png?rlkey=73fa8aebafgem24w2216v05nv&st=hjijugzg&dl=0" alt="Instagram Icon" class="icon">
-      </a>
+      <div class="card-right">
+        <a href="intent://www.instagram.com/ash_00xx?igshid=MTdudGd2eW8yZjRqeQ==#Intent;package=com.instagram.android;scheme=https;end;">
+          <img src="https://dl.dropboxusercontent.com/scl/fi/vi5a0cpijkrgzwsbtuwld/Instagram.png?rlkey=73fa8aebafgem24w2216v05nv&st=hjijugzg&dl=0" alt="Instagram Icon" class="icon">
+        </a>
+      </div>
     </div>
   </div>
   
