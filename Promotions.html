@@ -1,121 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ComStar Productions</title>
   <style>
-    /* Import the Caviar Dreams font */
     @font-face {
       font-family: 'Caviar Dreams';
-      src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0') format('truetype');
-      font-weight: normal;
-      font-style: normal;
+      src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0');
     }
-
-    /* Reset / Base */
-    html, body {
+    
+    * {
       margin: 0;
       padding: 0;
-      width: 100%;
-      min-height: 100vh;
-      overflow-x: hidden; /* Prevent horizontal scroll */
-      font-family: 'Caviar Dreams', sans-serif;
-      user-select: none; /* Disable text selection */
-      display: flex;
-      flex-direction: column;
-    }
-
-    body {
-      background: url('https://dl.dropboxusercontent.com/scl/fi/2s69poaelzw5xcgi1gucp/PromotionsBG.gif?rlkey=vza2j4bh2ukxlghfvlrxxxjs6&st=q7a8tvcs&dl=0') 
-                  no-repeat center center fixed;
-      background-size: cover;
-      background-color: #FFFFFF;
-    }
-
-    /* Container for main content */
-    .container {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
       box-sizing: border-box;
     }
-
-    /* Card styles */
-    .card {
+    
+    html, body {
+      font-family: 'Caviar Dreams', sans-serif;
+      background: url('https://dl.dropboxusercontent.com/scl/fi/2s69poaelzw5xcgi1gucp/PromotionsBG.gif?rlkey=vza2j4bh2ukxlghfvlrxxxjs6&st=p61um9eb&dl=0') no-repeat center center fixed;
+      background-color: #FFFFFF;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 20px;
-      padding: 20px;
+      user-select: none;
+    }
+    
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
       max-width: 450px;
-      box-sizing: border-box;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      border: 5px solid #7279DA;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-      /* Fade-in-up animation initial state */
-      opacity: 0;
-      transform: translateY(50px);
-      animation: fadeInUp 1s forwards ease-out;
-      animation-delay: 0.2s;
+      padding: 20px;
+      flex-grow: 1;
     }
 
-    .card:hover {
-      transform: scale(1.05);
-      filter: brightness(1.2);
-      background-color: rgba(0, 0, 0, 0.8);
-      box-shadow: 0 0 15px #7279DA;
-    }
-
-    .card img.banner {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      pointer-events: none; /* Disable image copying */
-    }
-
-    .main-text {
-      font-size: 12px;
-      color: lightgray;
-      text-align: left;
-      pointer-events: none; /* Prevent text selection within card */
-    }
-
-    .main-text strong {
-      font-weight: bold;
-    }
-
-    .main-text em {
-      font-style: italic;
-    }
-
-    .main-text a {
-      color: lightblue;
-      pointer-events: auto; /* Allow clicking links */
-      text-decoration: none;
-    }
-
-    .main-text a:hover {
-      text-decoration: underline;
-    }
-
-    /* Disable right-click and copying */
-    body, .card {
-      -webkit-touch-callout: none; 
-      -webkit-user-select: none; 
-      -moz-user-select: none; 
-      -ms-user-select: none; 
-      user-select: none; 
-    }
-
-    /* Fade-in-up animation */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -126,10 +51,84 @@
         transform: translateY(0);
       }
     }
+    
+    .card img.banner {
+      width: 100%;
+      height: auto;
+      max-width: 730px;
+      max-height: 340px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      border: 5px solid #7279DA;
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, filter 0.3s;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards ease-out;
+    }
+    
+    .card:hover {
+      transform: scale(1.05);
+      background-color: rgba(0, 0, 0, 0.8);
+      box-shadow: 0 0 15px #7279DA;
+      filter: brightness(1.2);
+    }
+    
+    .card-header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    
+    .card img.icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 15px;
+    }
+    
+    .card-info h2 {
+      margin: 0;
+      font-size: 16px;
+      color: white;
+      text-shadow: 0 0 10px #7279DA;
+    }
+    
+    .main-text {
+      font-size: 12px;
+      color: lightgray;
+      margin-top: 10px;
+      line-height: 1.5;
+      text-align: left;
+    }
+    
+    .main-text p {
+      margin-bottom: 15px;
+    }
 
-    /* Footer at the bottom */
+    /* Cyan-colored link */
+    .main-text a {
+      color: cyan;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .main-text a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Footer */
     .footer {
-      position: relative;  /* Footer remains below content */
       width: 100%;
       padding: 15px 20px;
       font-size: 14px;
@@ -137,21 +136,24 @@
       background: rgba(0, 0, 0, 0.7);
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       text-align: center;
+      margin-top: auto;
     }
   </style>
-  <script>
-    // Disable right-click
-    document.addEventListener('contextmenu', event => event.preventDefault());
-  </script>
 </head>
 <body>
   <div class="container">
+    <!-- Card -->
     <div class="card">
-      <img 
-        src="https://dl.dropboxusercontent.com/scl/fi/yu050a33pmatrwq9g2k61/ComStar.jpg?rlkey=k8e14nbhkmz8p0ggb9iqisva2&st=pdbiqxe9&dl=0" 
-        alt="ComStar Productions Banner" 
-        class="banner"
-      />
+      <!-- Banner Image -->
+      <img class="banner" src="https://dl.dropboxusercontent.com/scl/fi/yu050a33pmatrwq9g2k61/ComStar.jpg?rlkey=k8e14nbhkmz8p0ggb9iqisva2&st=pdbiqxe9&dl=0" alt="ComStar Banner" loading="lazy">
+      
+      <div class="card-header">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/vpztgk53llnyla6bkbtjb/Tech.png?rlkey=9ur4zzb56dxdwcr4x6ilovn56&st=rbrfdvn5&dl=0" alt="Tech Icon" class="icon" loading="lazy">
+        <div class="card-info">
+          <h2>ComStar Productions</h2>
+        </div>
+      </div>
+      
       <div class="main-text">
         <p><strong>🚀 Empowering Digital Innovation and IT Solutions! 🌟</strong></p>
         <p>
@@ -168,8 +170,8 @@
       </div>
     </div>
   </div>
-
-  <!-- Footer placed below content -->
+  
+  <!-- Footer -->
   <div class="footer">
     Copyright © 2025 Dev Raj Malik
   </div>
