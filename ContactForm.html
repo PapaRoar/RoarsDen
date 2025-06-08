@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form</title>
+  <style>
+    @font-face {
+      font-family: 'Caviar Dreams';
+      src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Caviar Dreams', sans-serif;
+      background: url('https://dl.dropboxusercontent.com/scl/fi/aje0ejldczgt9y1m5yphm/ContactFormBG.gif?rlkey=h9571tv9kzlsiqkzmd387t5sa&st=v82pr52g&dl=0') no-repeat center center fixed;
+      background-color: #FFFFFF;
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      min-height: 100vh;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 450px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      width: 100%;
+      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards ease-out;
+      border: 5px solid #7279DA;
+      box-shadow: 0 0 10px #7279DA;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      filter: brightness(1.1);
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .card-header h2 {
+      color: white;
+      font-size: 18px;
+      text-shadow: 0 0 10px #7279DA;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      color: white;
+      font-size: 14px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+      font-family: 'Caviar Dreams', sans-serif;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-btn {
+      margin-top: 10px;
+      background-color: #7279DA;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: 'Caviar Dreams', sans-serif;
+    }
+
+    .submit-btn:hover {
+      background-color: #5d62c8;
+    }
+
+    .footer {
+      width: 100%;
+      padding: 15px 20px;
+      font-size: 14px;
+      color: white;
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+    }
+  </style>
+
+  <script>
+    function formatAndSend(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      const body = `𝐍𝐚𝐦𝐞: ${name}\n\n𝐌𝐞𝐬𝐬𝐚𝐠𝐞:\n${message}`;
+      const mailtoLink = `mailto:classicgamescorporation@gmail.com?cc=${encodeURIComponent(email)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      window.location.href = mailtoLink;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2>Contact Me</h2>
+      </div>
+      <form onsubmit="formatAndSend(event)">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Enter subject" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Contact via Email</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    Copyright © 2025 Dev Raj Malik
+  </div>
+</body>
+</html>
