@@ -14,12 +14,11 @@
       font-family: 'CaviarDreams', sans-serif;
       margin: 0;
       padding: 0 20px 20px 20px;
-      box-sizing: border-box;
       background: #fff;
       color: #000;
       user-select: none;
       overflow-x: hidden;
-      line-hidden: 1.4;
+      transform: scale(0.95);
     }
     
     a {
@@ -28,16 +27,8 @@
     }
     
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   outline: none;
-  }
-  
-  img {
-      display: inline-block;
-      vertical-align: middle;
   }
     
     .banner {
@@ -811,31 +802,6 @@
   pointer-events: auto;
   transform: translateY(0)
   }
-  
-  @media (min-width: 768px) {
-  body {
-    padding: 40px 60px;
-  }
-
-  .profile-section, .about-section, .projects-section, .skills-section, .services-section {
-    max-width: 900px;
-    margin: 40px auto;
-  }
-
-  .banner img {
-    max-width: 900px;
-  }
-
-  .bio {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .project-card, .service-item {
-    font-size: 16px;
-    padding: 20px;
-  }
-}
 </style>
 <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
@@ -1178,6 +1144,5 @@
     }
   });
 </script>
-</body>
 </body>
 </html>
