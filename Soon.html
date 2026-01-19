@@ -33,8 +33,6 @@
       color: #000000;  
       min-height: 100vh;  
       position: relative;  
-      justify-content: center;  
-      align-items: center;  
     }  
 
     /* Background from Code 2 */  
@@ -153,342 +151,382 @@
       background-size: 1100px 100%;  
     }  
 
-    /* Main content container - FIXED FOR CENTERING */  
-    .container {  
-      z-index: 2;  
-      text-align: center;  
-      animation: fadeIn 2s ease-in-out forwards;  
-      padding: 20px;  
-      box-sizing: border-box;  
-      width: 100%;  
-      max-width: 1200px;  
-      display: flex;  
-      flex-direction: column;  
-      justify-content: center;  
-      align-items: center;  
-      margin: 0 auto;  
-      flex: 1; /* Added to push footer down */  
-    }  
+    /* Main content container - UPDATED */
+    .container {
+      z-index: 2;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out forwards;
+      padding: 20px;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+      flex: 1;
+      min-height: 0;
+    }
 
-    /* Logo styling - FIXED CENTERING */  
-    .logo-container {  
-      margin-bottom: 40px;  
-      animation: slideDown 1s ease-in-out 0.5s forwards;  
-      opacity: 0;  
-      width: 100%;  
-      display: flex;  
-      justify-content: center;  
-      align-items: center;  
-    }  
+    /* Logo styling */
+    .logo-container {
+      margin-bottom: 20px; /* Reduced margin */
+      animation: slideDown 1s ease-in-out 0.5s forwards;
+      opacity: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    .logo {  
-      width: 400px;  
-      height: auto;  
-      max-width: 90%;  
-      display: block;  
-      margin: 0 auto;  
-    }  
+    .logo {
+      width: 400px;
+      height: auto;
+      max-width: 90%;
+      display: block;
+      margin: 0 auto;
+    }
 
-    /* Coming Soon content - Updated with inspiration styling */  
-    .coming-soon-content {  
-      padding: 30px 40px;  
-      border-radius: 15px;  
-      max-width: 700px;  
-      width: 90%;  
-      animation: fadeIn 2s ease-in-out 0.8s forwards;  
-      opacity: 0;  
-    }  
+    /* Coming Soon content - CENTERED */
+    .coming-soon-content {
+      padding: 30px 40px;
+      border-radius: 15px;
+      max-width: 700px;
+      width: 90%;
+      animation: fadeIn 2s ease-in-out 0.8s forwards;
+      opacity: 0;
+      margin: auto; /* This centers the content vertically */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+    }
 
-    /* Updated heading styling - FIXED TO KEEP ALL ON ONE LINE */  
-    h1 {  
-      font-size: 2.4rem;  
-      font-weight: bold;  
-      margin-bottom: 15px;  
-      animation: slideUp 1s ease-in-out 0.3s forwards;  
-      opacity: 0;  
-      color: #111;  
-      white-space: nowrap; /* Prevents line breaks */  
-      display: inline-flex; /* Changed to inline-flex to keep all elements on one line */  
-      align-items: center; /* Vertically centers all elements */  
-      justify-content: center; /* Centers content horizontally */  
-      flex-wrap: nowrap; /* Prevents wrapping */  
-      gap: 5px; /* Adds spacing between elements */  
-      width: auto; /* Let content determine width */  
-      max-width: 100%; /* But don't exceed container */  
-    }  
+    /* Updated heading styling - FIXED TO KEEP ALL ON ONE LINE */
+    h1 {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      animation: slideUp 1s ease-in-out 0.3s forwards;
+      opacity: 0;
+      color: #111;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 5px;
+      width: auto;
+      max-width: 100%;
+    }
 
-    /* Updated paragraph styling from inspiration code */  
-    p {  
-      font-size: 1.2rem;  
-      line-height: 1.6;  
-      opacity: 0;  
-      animation: fadeIn 2s ease-in-out 1s forwards;  
-      color: #555;  
-    }  
+    /* Updated paragraph styling from inspiration code */
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out 1s forwards;
+      color: #555;
+    }
 
-    p span {  
-      display: block;  
-      margin-top: 5px;  
-      font-weight: 600;  
-      color: #e30f26; /* Changed from #e91e63 to match theme */  
-    }  
+    p span {
+      display: block;
+      margin-top: 5px;
+      font-weight: 600;
+      color: #e30f26;
+    }
 
-    .sparkle {  
-      font-size: 2.5rem;  
-      animation: sparkle 2s infinite;  
-      display: inline-block;  
-      line-height: 1; /* Prevents extra vertical space */  
-      flex-shrink: 0; /* Prevents emoji from shrinking */  
-    }  
+    .sparkle {
+      font-size: 2.5rem;
+      animation: sparkle 2s infinite;
+      display: inline-block;
+      line-height: 1;
+      flex-shrink: 0;
+    }
 
-    .heading-text {  
-      display: inline-block;  
-      white-space: nowrap;  
-      flex-shrink: 0; /* Prevents text from shrinking */  
-    }  
+    .heading-text {
+      display: inline-block;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
 
-    /* Footer - UPDATED */  
-    footer {  
-      background: #e30f26;  
-      color: #fff;  
-      text-align: center;  
-      padding: 25px 15px;  
-      font-size: 0.95rem;  
-      z-index: 3;  
-      position: relative;  
-      width: 100%;  
-      margin-top: auto; /* Changed to auto to stick to bottom */  
-    }  
+    /* Footer - UPDATED */
+    footer {
+      background: #e30f26;
+      color: #fff;
+      text-align: center;
+      padding: 20px 15px;
+      font-size: 0.95rem;
+      z-index: 3;
+      position: relative;
+      width: 100%;
+      flex-shrink: 0;
+    }
 
-    footer p {  
-      margin: 6px 0;  
-      color: #fff;  
-      font-size: 0.95rem;  
-      opacity: 1;  
-      animation: none;  
-    }  
+    footer p {
+      margin: 6px 0;
+      color: #fff;
+      font-size: 0.95rem;
+      opacity: 1;
+      animation: none;
+    }
 
-    .footer-links {  
-      margin: 15px 0 10px;  
-    }  
+    .footer-links {
+      margin: 15px 0 10px;
+    }
 
-    .footer-links a {  
-      color: #fff;  
-      text-decoration: none;  
-      margin: 0 10px;  
-      transition: all 0.3s ease;  
-    }  
+    .footer-links a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
 
-    .footer-links a:hover {  
-      color: #000;  
-    }  
+    .footer-links a:hover {
+      color: #000;
+    }
 
-    .social-icons {  
-      margin-top: 12px;  
-    }  
+    .social-icons {
+      margin-top: 12px;
+    }
 
-    .social-icons a {  
-      display: inline-block;  
-      margin: 0 10px;  
-    }  
+    .social-icons a {
+      display: inline-block;
+      margin: 0 10px;
+    }
 
-    .social-icon {  
-      width: 28px;  
-      height: 28px;  
-      object-fit: contain;  
-      filter: brightness(0) invert(1);  
-      transition: all 0.3s ease;  
-    }  
+    .social-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      transition: all 0.3s ease;
+    }
 
-    .social-icons a:hover .social-icon {  
-      filter: brightness(0) invert(0);  
-    }  
+    .social-icons a:hover .social-icon {
+      filter: brightness(0) invert(0);
+    }
 
-    /* Animations */  
-    @keyframes fadeIn {  
-      to { opacity: 1; }  
-    }  
+    /* Animations */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
 
-    @keyframes slideDown {  
-      from {  
-        transform: translateY(-50px);  
-        opacity: 0;  
-      }  
-      to {  
-        transform: translateY(0);  
-        opacity: 1;  
-      }  
-    }  
+    @keyframes slideDown {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-    @keyframes slideUp {  
-      from {  
-        transform: translateY(50px);  
-        opacity: 0;  
-      }  
-      to {  
-        transform: translateY(0);  
-        opacity: 1;  
-      }  
-    }  
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-    @keyframes float {  
-      0%, 100% {  
-        transform: translateY(0) rotate(0);  
-      }  
-      50% {  
-        transform: translateY(-20px) rotate(5deg);  
-      }  
-    }  
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0);
+      }
+      50% {
+        transform: translateY(-20px) rotate(5deg);
+      }
+    }
 
-    @keyframes sparkle {  
-      0%, 100% {  
-        opacity: 1;  
-        transform: scale(1);  
-      }  
-      50% {  
-        opacity: 0.7;  
-        transform: scale(1.1);  
-      }  
-    }  
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+      }
+    }
 
-    /* Responsive adjustments */  
-    @media (max-width: 768px) {  
-      .music-note {  
-        font-size: clamp(1.2rem, 5vw, 1.8rem);  
-      }  
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .music-note {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+      }
 
-      .note-1 {  
-        top: 10%;  
-        left: 5%;  
-      }  
+      .note-1 {
+        top: 10%;
+        left: 5%;
+      }
 
-      .note-2 {  
-        top: 15%;  
-        right: 5%;  
-      }  
+      .note-2 {
+        top: 15%;
+        right: 5%;
+      }
 
-      .note-3 {  
-        bottom: 15%;  
-        left: 5%;  
-      }  
+      .note-3 {
+        bottom: 15%;
+        left: 5%;
+      }
 
-      .note-4 {  
-        top: 65%;  
-        right: 10%;  
-      }  
+      .note-4 {
+        top: 65%;
+        right: 10%;
+      }
 
-      .note-5 {  
-        bottom: 40%;  
-        left: 60%;  
-      }  
+      .note-5 {
+        bottom: 40%;
+        left: 60%;
+      }
 
-      .note-6 {  
-        top: 40%;  
-        right: 5%;  
-      }  
+      .note-6 {
+        top: 40%;
+        right: 5%;
+      }
 
-      .circle-3 {  
-        top: 20%;  
-        left: 5%;  
-      }  
+      .circle-3 {
+        top: 20%;
+        left: 5%;
+      }
 
-      h1 {  
-        font-size: 2rem;  
-        white-space: nowrap;  
-        display: inline-flex;  
-        gap: 3px;  
-      }  
+      h1 {
+        font-size: 2rem;
+        white-space: nowrap;
+        display: inline-flex;
+        gap: 3px;
+      }
 
-      p {  
-        font-size: 1.1rem;  
-      }  
+      p {
+        font-size: 1.1rem;
+      }
 
-      .logo {  
-        width: 350px;  
-      }  
+      .logo {
+        width: 350px;
+      }
 
-      .coming-soon-content {  
-        padding: 25px 30px;  
-      }  
+      .coming-soon-content {
+        padding: 25px 30px;
+      }
 
-      .sparkle {  
-        font-size: 1.8rem;  
-      }  
-    }  
-
-    @media (max-width: 640px) {  
-      h1 {  
-        font-size: 1.8rem;  
-        white-space: nowrap;  
-      }  
+      .sparkle {
+        font-size: 1.8rem;
+      }
       
-      .sparkle {  
-        font-size: 1.6rem;  
-      }  
-    }  
-
-    @media (max-width: 480px) {  
-      .music-note {  
-        font-size: 1.2rem;  
-      }  
-
-      .note-4, .note-5 {  
-        display: none;  
-      }  
-
-      .circle-1, .circle-2, .circle-3 {  
-        opacity: 0.7;  
-      }  
-
-      h1 {  
-        font-size: 1.6rem;  
-        white-space: nowrap; /* Keep on one line even on mobile */  
-        display: inline-flex;  
-        gap: 2px;  
-      }  
-
-      p {  
-        font-size: 1rem;  
-      }  
-
-      .logo {  
-        width: 300px;  
-      }  
-
-      .coming-soon-content {  
-        padding: 20px 25px;  
-        max-width: 95%; /* Give more space for the heading */  
-      }  
-
-      footer {  
-        padding: 20px 10px;  
-        font-size: 0.85rem;  
-      }  
-
-      .sparkle {  
-        font-size: 1.4rem;  
-      }  
-    }  
-
-    @media (max-width: 360px) {  
-      h1 {  
-        font-size: 1.4rem;  
-        white-space: normal; /* Allow wrapping only on very small screens */  
-        display: block; /* Switch to block layout on very small screens */  
-      }  
+      .container {
+        padding: 15px;
+      }
       
-      .sparkle {  
-        font-size: 1.2rem;  
-      }  
+      .logo-container {
+        margin-bottom: 15px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 1.8rem;
+        white-space: nowrap;
+      }
       
-      .sparkle:first-child {  
-        margin-right: 5px;  
-      }  
+      .sparkle {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .music-note {
+        font-size: 1.2rem;
+      }
+
+      .note-4, .note-5 {
+        display: none;
+      }
+
+      .circle-1, .circle-2, .circle-3 {
+        opacity: 0.7;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        white-space: nowrap;
+        display: inline-flex;
+        gap: 2px;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      .logo {
+        width: 300px;
+      }
+
+      .coming-soon-content {
+        padding: 20px 25px;
+        max-width: 95%;
+      }
+
+      footer {
+        padding: 15px 10px;
+        font-size: 0.85rem;
+      }
+
+      .sparkle {
+        font-size: 1.4rem;
+      }
       
-      .sparkle:last-child {  
-        margin-left: 5px;  
-      }  
-    }  
+      .container {
+        padding: 10px;
+      }
+      
+      .logo-container {
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-height: 700px) and (max-width: 768px) {
+      /* For shorter screens on mobile */
+      .logo-container {
+        margin-bottom: 10px;
+      }
+      
+      .logo {
+        width: 280px;
+      }
+      
+      .coming-soon-content {
+        padding: 15px 20px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 1.4rem;
+        white-space: normal;
+        display: block;
+      }
+      
+      .sparkle {
+        font-size: 1.2rem;
+      }
+      
+      .sparkle:first-child {
+        margin-right: 5px;
+      }
+      
+      .sparkle:last-child {
+        margin-left: 5px;
+      }
+      
+      .logo {
+        width: 260px;
+      }
+    }
   </style>  
 </head>  
 <body>  
@@ -510,12 +548,12 @@
 
   <!-- Main Content -->  
   <div class="container">  
-    <!-- Logo at the top - NOW PROPERLY CENTERED -->  
+    <!-- Logo at the top -->  
     <div class="logo-container">  
       <img src="https://dl.dropboxusercontent.com/scl/fi/jrhwv9aa54pn5jjla7dp8/Logo1.png?rlkey=pw26iznsteugoie7101hxayu6&st=n5zdtded&dl=0" alt="Nightingale Sangeet Academy Logo" class="logo">  
     </div>  
 
-    <!-- Coming Soon content below the logo - Updated styling from inspiration -->  
+    <!-- Coming Soon content below the logo - NOW CENTERED -->  
     <div class="coming-soon-content">  
       <h1><span class="sparkle">✨</span><span class="heading-text">&nbsp;Coming Soon&nbsp;</span><span class="sparkle">✨</span></h1>  
       <p>We're Crafting Something Musical<span>Stay Tuned</span></p>  
