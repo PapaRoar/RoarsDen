@@ -1,0 +1,549 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Nightingale Sangeet Academy</title>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+  <style>  
+    @font-face {  
+      font-family: 'Caviar Dreams';  
+      src: url('https://dl.dropboxusercontent.com/scl/fi/rbwj2cvstorrghg83asuh/CaviarDreams.ttf?rlkey=772bt4rvza8b8pui78hf69vyb&st=s533xzc7&dl=0') format('truetype');  
+    }  
+
+    * {  
+      margin: 0;  
+      padding: 0;  
+      box-sizing: border-box;  
+      -webkit-tap-highlight-color: transparent;  
+      outline: none;  
+    }  
+
+    html, body {  
+      height: 100%;  
+      margin: 0;  
+      padding: 0;  
+      overflow-x: hidden;  
+    }  
+
+    body {  
+      display: flex;  
+      flex-direction: column;  
+      font-family: 'Caviar Dreams', sans-serif;  
+      color: #000000;  
+      min-height: 100vh;  
+      position: relative;  
+      justify-content: center;  
+      align-items: center;  
+    }  
+
+    /* Background from Code 2 */  
+    .background-container {  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      z-index: -1;  
+      background: linear-gradient(135deg, #f9f6f2 0%, #f1e8e6 100%);  
+    }  
+
+    .music-note {  
+      position: absolute;  
+      font-size: clamp(1.5rem, 4vw, 2rem);  
+      color: rgba(227, 15, 38, 0.15);  
+      z-index: 0;  
+      animation: float 6s ease-in-out infinite;  
+    }  
+
+    .note-1 {  
+      top: 15%;  
+      left: 10%;  
+      transform: rotate(25deg);  
+      animation-delay: 0s;  
+    }  
+
+    .note-2 {  
+      top: 40%;  
+      right: 10%;  
+      transform: rotate(-15deg);  
+      animation-delay: 1s;  
+    }  
+
+    .note-3 {  
+      bottom: 20%;  
+      left: 15%;  
+      transform: rotate(-10deg);  
+      animation-delay: 2s;  
+    }  
+
+    .note-4 {  
+      top: 25%;  
+      right: 25%;  
+      transform: rotate(15deg);  
+      animation-delay: 3s;  
+    }  
+
+    .note-5 {  
+      bottom: 40%;  
+      left: 30%;  
+      transform: rotate(5deg);  
+      animation-delay: 4s;  
+    }  
+
+    .note-6 {  
+      top: 70%;  
+      right: 20%;  
+      transform: rotate(-25deg);  
+      animation-delay: 5s;  
+    }  
+
+    /* Additional decorative elements */  
+    .circle {  
+      position: absolute;  
+      border-radius: 50%;  
+      z-index: 0;  
+    }  
+
+    .circle-1 {  
+      width: min(250px, 40vw);  
+      height: min(250px, 40vw);  
+      background: rgba(227, 15, 38, 0.05);  
+      top: -50px;  
+      right: -50px;  
+    }  
+
+    .circle-2 {  
+      width: min(180px, 30vw);  
+      height: min(180px, 30vw);  
+      background: rgba(227, 15, 38, 0.03);  
+      bottom: -30px;  
+      left: -30px;  
+    }  
+
+    .circle-3 {  
+      width: min(120px, 20vw);  
+      height: min(120px, 20vw);  
+      background: rgba(227, 15, 38, 0.07);  
+      top: 30%;  
+      left: 20%;  
+    }  
+
+    .wave {  
+      position: absolute;  
+      bottom: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 10vh;  
+      min-height: 50px;  
+      max-height: 100px;  
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" fill="%23e30f2611"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z" /></svg>');  
+      background-repeat: no-repeat;  
+      background-position: bottom;  
+      background-size: 1200px 100%;  
+      z-index: 0;  
+    }  
+
+    .wave-2 {  
+      bottom: 10px;  
+      height: 8vh;  
+      min-height: 40px;  
+      max-height: 80px;  
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" fill="%23e30f2608"><path d="M0 0v46.29c47.79 22.2 103.59 32.17 158 28 70.36-5.37 136.33-33.31 206.8-37.5 73.84-4.36 147.54 16.88 218.2 35.26 69.27 18 138.3 24.88 209.4 13.08 36.15-6 69.85-17.84 104.45-29.34C989.49 25 1113-14.29 1200 52.47V0z" /></svg>');  
+      background-size: 1100px 100%;  
+    }  
+
+    /* Main content container - FIXED FOR CENTERING */  
+    .container {  
+      z-index: 2;  
+      text-align: center;  
+      animation: fadeIn 2s ease-in-out forwards;  
+      padding: 20px;  
+      box-sizing: border-box;  
+      width: 100%;  
+      max-width: 1200px;  
+      display: flex;  
+      flex-direction: column;  
+      justify-content: center;  
+      align-items: center;  
+      margin: 0 auto;  
+      flex: 1; /* Added to push footer down */  
+    }  
+
+    /* Logo styling - FIXED CENTERING */  
+    .logo-container {  
+      margin-bottom: 40px;  
+      animation: slideDown 1s ease-in-out 0.5s forwards;  
+      opacity: 0;  
+      width: 100%;  
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
+    }  
+
+    .logo {  
+      width: 400px;  
+      height: auto;  
+      max-width: 90%;  
+      display: block;  
+      margin: 0 auto;  
+    }  
+
+    /* Coming Soon content - Updated with inspiration styling */  
+    .coming-soon-content {  
+      padding: 30px 40px;  
+      border-radius: 15px;  
+      max-width: 700px;  
+      width: 90%;  
+      animation: fadeIn 2s ease-in-out 0.8s forwards;  
+      opacity: 0;  
+    }  
+
+    /* Updated heading styling - FIXED TO KEEP ALL ON ONE LINE */  
+    h1 {  
+      font-size: 2.4rem;  
+      font-weight: bold;  
+      margin-bottom: 15px;  
+      animation: slideUp 1s ease-in-out 0.3s forwards;  
+      opacity: 0;  
+      color: #111;  
+      white-space: nowrap; /* Prevents line breaks */  
+      display: inline-flex; /* Changed to inline-flex to keep all elements on one line */  
+      align-items: center; /* Vertically centers all elements */  
+      justify-content: center; /* Centers content horizontally */  
+      flex-wrap: nowrap; /* Prevents wrapping */  
+      gap: 5px; /* Adds spacing between elements */  
+      width: auto; /* Let content determine width */  
+      max-width: 100%; /* But don't exceed container */  
+    }  
+
+    /* Updated paragraph styling from inspiration code */  
+    p {  
+      font-size: 1.2rem;  
+      line-height: 1.6;  
+      opacity: 0;  
+      animation: fadeIn 2s ease-in-out 1s forwards;  
+      color: #555;  
+    }  
+
+    p span {  
+      display: block;  
+      margin-top: 5px;  
+      font-weight: 600;  
+      color: #e30f26; /* Changed from #e91e63 to match theme */  
+    }  
+
+    .sparkle {  
+      font-size: 2.5rem;  
+      animation: sparkle 2s infinite;  
+      display: inline-block;  
+      line-height: 1; /* Prevents extra vertical space */  
+      flex-shrink: 0; /* Prevents emoji from shrinking */  
+    }  
+
+    .heading-text {  
+      display: inline-block;  
+      white-space: nowrap;  
+      flex-shrink: 0; /* Prevents text from shrinking */  
+    }  
+
+    /* Footer - UPDATED */  
+    footer {  
+      background: #e30f26;  
+      color: #fff;  
+      text-align: center;  
+      padding: 25px 15px;  
+      font-size: 0.95rem;  
+      z-index: 3;  
+      position: relative;  
+      width: 100%;  
+      margin-top: auto; /* Changed to auto to stick to bottom */  
+    }  
+
+    footer p {  
+      margin: 6px 0;  
+      color: #fff;  
+      font-size: 0.95rem;  
+      opacity: 1;  
+      animation: none;  
+    }  
+
+    .footer-links {  
+      margin: 15px 0 10px;  
+    }  
+
+    .footer-links a {  
+      color: #fff;  
+      text-decoration: none;  
+      margin: 0 10px;  
+      transition: all 0.3s ease;  
+    }  
+
+    .footer-links a:hover {  
+      color: #000;  
+    }  
+
+    .social-icons {  
+      margin-top: 12px;  
+    }  
+
+    .social-icons a {  
+      display: inline-block;  
+      margin: 0 10px;  
+    }  
+
+    .social-icon {  
+      width: 28px;  
+      height: 28px;  
+      object-fit: contain;  
+      filter: brightness(0) invert(1);  
+      transition: all 0.3s ease;  
+    }  
+
+    .social-icons a:hover .social-icon {  
+      filter: brightness(0) invert(0);  
+    }  
+
+    /* Animations */  
+    @keyframes fadeIn {  
+      to { opacity: 1; }  
+    }  
+
+    @keyframes slideDown {  
+      from {  
+        transform: translateY(-50px);  
+        opacity: 0;  
+      }  
+      to {  
+        transform: translateY(0);  
+        opacity: 1;  
+      }  
+    }  
+
+    @keyframes slideUp {  
+      from {  
+        transform: translateY(50px);  
+        opacity: 0;  
+      }  
+      to {  
+        transform: translateY(0);  
+        opacity: 1;  
+      }  
+    }  
+
+    @keyframes float {  
+      0%, 100% {  
+        transform: translateY(0) rotate(0);  
+      }  
+      50% {  
+        transform: translateY(-20px) rotate(5deg);  
+      }  
+    }  
+
+    @keyframes sparkle {  
+      0%, 100% {  
+        opacity: 1;  
+        transform: scale(1);  
+      }  
+      50% {  
+        opacity: 0.7;  
+        transform: scale(1.1);  
+      }  
+    }  
+
+    /* Responsive adjustments */  
+    @media (max-width: 768px) {  
+      .music-note {  
+        font-size: clamp(1.2rem, 5vw, 1.8rem);  
+      }  
+
+      .note-1 {  
+        top: 10%;  
+        left: 5%;  
+      }  
+
+      .note-2 {  
+        top: 15%;  
+        right: 5%;  
+      }  
+
+      .note-3 {  
+        bottom: 15%;  
+        left: 5%;  
+      }  
+
+      .note-4 {  
+        top: 65%;  
+        right: 10%;  
+      }  
+
+      .note-5 {  
+        bottom: 40%;  
+        left: 60%;  
+      }  
+
+      .note-6 {  
+        top: 40%;  
+        right: 5%;  
+      }  
+
+      .circle-3 {  
+        top: 20%;  
+        left: 5%;  
+      }  
+
+      h1 {  
+        font-size: 2rem;  
+        white-space: nowrap;  
+        display: inline-flex;  
+        gap: 3px;  
+      }  
+
+      p {  
+        font-size: 1.1rem;  
+      }  
+
+      .logo {  
+        width: 350px;  
+      }  
+
+      .coming-soon-content {  
+        padding: 25px 30px;  
+      }  
+
+      .sparkle {  
+        font-size: 1.8rem;  
+      }  
+    }  
+
+    @media (max-width: 640px) {  
+      h1 {  
+        font-size: 1.8rem;  
+        white-space: nowrap;  
+      }  
+      
+      .sparkle {  
+        font-size: 1.6rem;  
+      }  
+    }  
+
+    @media (max-width: 480px) {  
+      .music-note {  
+        font-size: 1.2rem;  
+      }  
+
+      .note-4, .note-5 {  
+        display: none;  
+      }  
+
+      .circle-1, .circle-2, .circle-3 {  
+        opacity: 0.7;  
+      }  
+
+      h1 {  
+        font-size: 1.6rem;  
+        white-space: nowrap; /* Keep on one line even on mobile */  
+        display: inline-flex;  
+        gap: 2px;  
+      }  
+
+      p {  
+        font-size: 1rem;  
+      }  
+
+      .logo {  
+        width: 300px;  
+      }  
+
+      .coming-soon-content {  
+        padding: 20px 25px;  
+        max-width: 95%; /* Give more space for the heading */  
+      }  
+
+      footer {  
+        padding: 20px 10px;  
+        font-size: 0.85rem;  
+      }  
+
+      .sparkle {  
+        font-size: 1.4rem;  
+      }  
+    }  
+
+    @media (max-width: 360px) {  
+      h1 {  
+        font-size: 1.4rem;  
+        white-space: normal; /* Allow wrapping only on very small screens */  
+        display: block; /* Switch to block layout on very small screens */  
+      }  
+      
+      .sparkle {  
+        font-size: 1.2rem;  
+      }  
+      
+      .sparkle:first-child {  
+        margin-right: 5px;  
+      }  
+      
+      .sparkle:last-child {  
+        margin-left: 5px;  
+      }  
+    }  
+  </style>  
+</head>  
+<body>  
+  <!-- Background from Code 2 -->  
+  <div class="background-container">  
+    <div class="music-note note-1"><i class="fas fa-music"></i></div>  
+    <div class="music-note note-2"><i class="fas fa-music"></i></div>  
+    <div class="music-note note-3"><i class="fas fa-music"></i></div>  
+    <div class="music-note note-4"><i class="fas fa-music"></i></div>  
+    <div class="music-note note-5"><i class="fas fa-music"></i></div>  
+    <div class="music-note note-6"><i class="fas fa-music"></i></div>  
+    <div class="circle circle-1"></div>  
+    <div class="circle circle-2"></div>  
+    <div class="circle circle-3"></div>  
+
+    <div class="wave"></div>  
+    <div class="wave wave-2"></div>  
+  </div>  
+
+  <!-- Main Content -->  
+  <div class="container">  
+    <!-- Logo at the top - NOW PROPERLY CENTERED -->  
+    <div class="logo-container">  
+      <img src="https://dl.dropboxusercontent.com/scl/fi/jrhwv9aa54pn5jjla7dp8/Logo1.png?rlkey=pw26iznsteugoie7101hxayu6&st=n5zdtded&dl=0" alt="Nightingale Sangeet Academy Logo" class="logo">  
+    </div>  
+
+    <!-- Coming Soon content below the logo - Updated styling from inspiration -->  
+    <div class="coming-soon-content">  
+      <h1><span class="sparkle">✨</span><span class="heading-text">&nbsp;Coming Soon&nbsp;</span><span class="sparkle">✨</span></h1>  
+      <p>We're Crafting Something Musical<span>Stay Tuned</span></p>  
+    </div>  
+  </div>  
+
+  <!-- Footer with updated design -->  
+  <footer class="no-select">  
+    <p>All Rights Reserved - Nightingale Sangeet Academy</p>  
+    <p>Copyright © 2026 Raj Malik</p>  
+    <p>Bareilly (Uttar Pradesh), India</p>  
+
+    <div class="social-icons">  
+      <a href="https://www.facebook.com/share/1AiHzsMvJr/" target="_blank" rel="external noopener noreferrer">  
+        <img src="https://dl.dropboxusercontent.com/scl/fi/xd6ti0j8ma8yezeww3rs8/Facebook.png?rlkey=5hk2afp68ln53rykwibpfvaq1&st=1tkgi3mh&dl=0" alt="Facebook" class="social-icon">  
+      </a>  
+      <a href="https://www.instagram.com/nightingalesangeetacademy?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="external noopener noreferrer">  
+        <img src="https://dl.dropboxusercontent.com/scl/fi/76zm1rq1xmfyljlfn2q9z/Instagram.png?rlkey=jgslvdzsnpd8ll32xvtyprori&st=y21d7eug&dl=0" alt="Instagram" class="social-icon">  
+      </a>  
+      <a href="https://youtube.com/@nightingalesmelodyclub?si=1U7IHFNLwy67FhGZ" target="_blank" rel="external noopener noreferrer">  
+        <img src="https://dl.dropboxusercontent.com/scl/fi/c4e7x4cbbvx6z5j7fwfl9/Youtube.png?rlkey=7o63ujkx26pye60f0ysdimunz&st=wo2ai16z&dl=0" alt="YouTube" class="social-icon">  
+      </a>  
+    </div>  
+
+    <div class="footer-links">  
+      <a href="#">Terms & Conditions</a> |  
+      <a href="#">Privacy Policy</a>  
+    </div>  
+  </footer>  
+</body>  
+</html>
