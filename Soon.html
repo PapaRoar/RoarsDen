@@ -24,6 +24,7 @@
       margin: 0;  
       padding: 0;  
       overflow-x: hidden;  
+      overflow-y: auto; /* Allow scrolling only if really needed */
     }  
 
     body {  
@@ -32,9 +33,8 @@
       font-family: 'Caviar Dreams', sans-serif;  
       color: #000000;  
       min-height: 100vh;  
+      height: 100%; /* Added to ensure body takes full height */
       position: relative;  
-      justify-content: center;  
-      align-items: center;  
     }  
 
     /* Background from Code 2 */  
@@ -153,7 +153,7 @@
       background-size: 1100px 100%;  
     }  
 
-    /* Main content container - FIXED FOR CENTERING */  
+    /* Main content container - UPDATED FOR BETTER VIEWPORT FITTING */
     .container {  
       z-index: 2;  
       text-align: center;  
@@ -167,43 +167,47 @@
       justify-content: center;  
       align-items: center;  
       margin: 0 auto;  
-      flex: 1; /* Added to push footer down */  
+      flex: 1 0 auto; /* Changed to allow shrinking if needed */
+      min-height: auto; /* Removed fixed min-height */
     }  
 
-    /* Logo styling - FIXED CENTERING */  
+    /* Logo styling - ADJUSTED FOR BETTER SPACING */
     .logo-container {  
-      margin-bottom: 40px;  
+      margin-bottom: 20px; /* Reduced from 40px */
       animation: slideDown 1s ease-in-out 0.5s forwards;  
       opacity: 0;  
       width: 100%;  
       display: flex;  
       justify-content: center;  
       align-items: center;  
+      flex-shrink: 0; /* Prevent shrinking */
     }  
 
     .logo {  
-      width: 400px;  
+      width: 350px; /* Reduced from 400px */
       height: auto;  
-      max-width: 90%;  
+      max-width: 85%; /* Increased from 90% */
       display: block;  
       margin: 0 auto;  
     }  
 
-    /* Coming Soon content - Updated with inspiration styling */  
+    /* Coming Soon content - ADJUSTED FOR BETTER SPACING */
     .coming-soon-content {  
-      padding: 30px 40px;  
+      padding: 20px 30px; /* Reduced padding */
       border-radius: 15px;  
       max-width: 700px;  
       width: 90%;  
       animation: fadeIn 2s ease-in-out 0.8s forwards;  
       opacity: 0;  
+      margin-bottom: 10px; /* Added to create space before footer */
+      flex-shrink: 0; /* Prevent shrinking */
     }  
 
     /* Updated heading styling - FIXED TO KEEP ALL ON ONE LINE */  
     h1 {  
-      font-size: 2.4rem;  
+      font-size: 2.2rem; /* Slightly reduced */
       font-weight: bold;  
-      margin-bottom: 15px;  
+      margin-bottom: 10px; /* Reduced from 15px */
       animation: slideUp 1s ease-in-out 0.3s forwards;  
       opacity: 0;  
       color: #111;  
@@ -219,12 +223,17 @@
 
     /* Updated paragraph styling from inspiration code */  
     p {  
-      font-size: 1.2rem;  
-      line-height: 1.6;  
+      font-size: 1.1rem; /* Slightly reduced */
+      line-height: 1.5; /* Reduced from 1.6 */
       opacity: 0;  
       animation: fadeIn 2s ease-in-out 1s forwards;  
       color: #555;  
+      margin: 0; /* Remove default margins */
     }  
+
+    .coming-soon-content p {
+      margin-top: 5px; /* Add only top margin for spacing */
+    }
 
     p span {  
       display: block;  
@@ -234,7 +243,7 @@
     }  
 
     .sparkle {  
-      font-size: 2.5rem;  
+      font-size: 2.2rem; /* Reduced from 2.5rem */
       animation: sparkle 2s infinite;  
       display: inline-block;  
       line-height: 1; /* Prevents extra vertical space */  
@@ -247,35 +256,36 @@
       flex-shrink: 0; /* Prevents text from shrinking */  
     }  
 
-    /* Footer - UPDATED */  
+    /* Footer - UPDATED FOR BETTER VIEWPORT FITTING */
     footer {  
       background: #e30f26;  
       color: #fff;  
       text-align: center;  
-      padding: 25px 15px;  
-      font-size: 0.95rem;  
+      padding: 15px 10px; /* Reduced padding */
+      font-size: 0.9rem; /* Slightly reduced */
       z-index: 3;  
       position: relative;  
       width: 100%;  
-      margin-top: auto; /* Changed to auto to stick to bottom */  
+      flex-shrink: 0; /* Prevent footer from shrinking */
+      margin-top: auto; /* Push to bottom */
     }  
 
     footer p {  
-      margin: 6px 0;  
+      margin: 4px 0; /* Reduced from 6px */
       color: #fff;  
-      font-size: 0.95rem;  
+      font-size: 0.9rem; /* Slightly reduced */
       opacity: 1;  
       animation: none;  
     }  
 
     .footer-links {  
-      margin: 15px 0 10px;  
+      margin: 10px 0 8px; /* Reduced margins */
     }  
 
     .footer-links a {  
       color: #fff;  
       text-decoration: none;  
-      margin: 0 10px;  
+      margin: 0 8px; /* Reduced from 10px */
       transition: all 0.3s ease;  
     }  
 
@@ -284,17 +294,17 @@
     }  
 
     .social-icons {  
-      margin-top: 12px;  
+      margin-top: 8px; /* Reduced from 12px */
     }  
 
     .social-icons a {  
       display: inline-block;  
-      margin: 0 10px;  
+      margin: 0 8px; /* Reduced from 10px */
     }  
 
     .social-icon {  
-      width: 28px;  
-      height: 28px;  
+      width: 24px; /* Reduced from 28px */
+      height: 24px; /* Reduced from 28px */
       object-fit: contain;  
       filter: brightness(0) invert(1);  
       transition: all 0.3s ease;  
@@ -351,7 +361,7 @@
       }  
     }  
 
-    /* Responsive adjustments */  
+    /* Responsive adjustments - UPDATED FOR BETTER VIEWPORT FITTING */
     @media (max-width: 768px) {  
       .music-note {  
         font-size: clamp(1.2rem, 5vw, 1.8rem);  
@@ -393,37 +403,37 @@
       }  
 
       h1 {  
-        font-size: 2rem;  
+        font-size: 1.8rem; /* Reduced from 2rem */
         white-space: nowrap;  
         display: inline-flex;  
         gap: 3px;  
       }  
 
       p {  
-        font-size: 1.1rem;  
+        font-size: 1rem; /* Reduced from 1.1rem */
       }  
 
       .logo {  
-        width: 350px;  
+        width: 300px; /* Reduced from 350px */
       }  
 
       .coming-soon-content {  
-        padding: 25px 30px;  
+        padding: 15px 20px; /* Reduced padding */
       }  
 
       .sparkle {  
-        font-size: 1.8rem;  
+        font-size: 1.6rem; /* Reduced from 1.8rem */
       }  
     }  
 
     @media (max-width: 640px) {  
       h1 {  
-        font-size: 1.8rem;  
+        font-size: 1.6rem; /* Reduced from 1.8rem */
         white-space: nowrap;  
       }  
       
       .sparkle {  
-        font-size: 1.6rem;  
+        font-size: 1.4rem; /* Reduced from 1.6rem */
       }  
     }  
 
@@ -441,44 +451,44 @@
       }  
 
       h1 {  
-        font-size: 1.6rem;  
+        font-size: 1.4rem; /* Reduced from 1.6rem */
         white-space: nowrap; /* Keep on one line even on mobile */  
         display: inline-flex;  
         gap: 2px;  
       }  
 
       p {  
-        font-size: 1rem;  
+        font-size: 0.95rem; /* Reduced from 1rem */
       }  
 
       .logo {  
-        width: 300px;  
+        width: 250px; /* Reduced from 300px */
       }  
 
       .coming-soon-content {  
-        padding: 20px 25px;  
+        padding: 12px 15px; /* Reduced padding */
         max-width: 95%; /* Give more space for the heading */  
       }  
 
       footer {  
-        padding: 20px 10px;  
-        font-size: 0.85rem;  
+        padding: 12px 8px; /* Reduced padding */
+        font-size: 0.8rem; /* Reduced from 0.85rem */
       }  
 
       .sparkle {  
-        font-size: 1.4rem;  
+        font-size: 1.2rem; /* Reduced from 1.4rem */
       }  
     }  
 
     @media (max-width: 360px) {  
       h1 {  
-        font-size: 1.4rem;  
+        font-size: 1.2rem; /* Reduced from 1.4rem */
         white-space: normal; /* Allow wrapping only on very small screens */  
         display: block; /* Switch to block layout on very small screens */  
       }  
       
       .sparkle {  
-        font-size: 1.2rem;  
+        font-size: 1rem; /* Reduced from 1.2rem */
       }  
       
       .sparkle:first-child {  
@@ -488,7 +498,40 @@
       .sparkle:last-child {  
         margin-left: 5px;  
       }  
+
+      .logo {  
+        width: 220px; /* Further reduced for very small screens */
+      }
+      
+      .container {
+        padding: 10px; /* Reduced padding for very small screens */
+      }
     }  
+
+    /* Extra small height devices */
+    @media (max-height: 700px) {
+      .logo {
+        width: 280px; /* Reduce logo size for short screens */
+      }
+      
+      .logo-container {
+        margin-bottom: 15px; /* Reduce spacing */
+      }
+      
+      .coming-soon-content {
+        padding: 15px 20px; /* Reduce padding */
+      }
+    }
+    
+    @media (max-height: 600px) {
+      .logo {
+        width: 240px; /* Further reduce logo size */
+      }
+      
+      .note-3, .note-6 {
+        display: none; /* Hide some decorative elements on very short screens */
+      }
+    }
   </style>  
 </head>  
 <body>  
