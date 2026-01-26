@@ -15,7 +15,11 @@
       margin: 0;  
       padding: 0;  
       box-sizing: border-box;  
-      -webkit-tap-highlight-color: transparent;  
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       outline: none;  
     }  
 
@@ -35,6 +39,16 @@
       min-height: 100dvh; /* Modern dynamic viewport height */
       position: relative;  
     }  
+
+    /* Prevent image dragging and downloading */
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+      pointer-events: none;
+    }
 
     /* Background from Code 2 - UPDATED with dvh */  
     .background-container {  
